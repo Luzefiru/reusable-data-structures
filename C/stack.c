@@ -15,6 +15,7 @@ bool flag_underflow = false, flag_overflow = false;
 
 bool is_empty(void);
 bool is_full(void);
+void make_empty(void);
 char push(char ch);
 char pop(void);
 void stack_overflow(void);
@@ -45,10 +46,16 @@ bool is_full(void)
  */
 char push(char ch)
 {
-    if (is_full)
+    if (is_full())
         stack_overflow();
     else
         contents[top++] = ch;
+}
+
+/* clears the stack */
+void make_empty(void)
+{
+    top = 0;
 }
 
 /*
